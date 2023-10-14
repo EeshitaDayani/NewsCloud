@@ -64,12 +64,14 @@ export default function Cloud({ count = 20, radius = 20 }) {
         const z = Math.sin(theta) * radiusAtY
   
         const spiralRadius = radius
-        temp.push([new THREE.Vector3(x * spiralRadius, y * spiralRadius, z * spiralRadius), newsPhrases[i % newsPhrases.length]])
-      }
-      return temp
-    }, [count, radius])
 
+        const index = i % newsPhrases.length;
+        temp.push([new THREE.Vector3(x * spiralRadius, y * spiralRadius, z * spiralRadius), newsPhrases[index], colorArr[i]]);
+    }
+    return temp;
+  }, [count, radius]);
 
-  
-     return words.map(([pos, phrase], index) => <Word key={index} position={pos} children={phrase} color={colorArr[index]} />)
-  }
+  return words.map(([pos, phrase, color], index) => (
+    <Word key={index} position={pos} children={phrase} color={color} />
+  ))
+}
