@@ -3,6 +3,27 @@ import * as THREE from 'three';
 
 import Word from './Word';
 
+var colorArr = [  'rgb(255, 0, 0)',   
+                  'rgb(255, 13, 0)',
+                  'rgb(255, 27, 0)', 
+                  'rgb(255, 40, 0)',
+                  'rgb(255, 54, 0)',  
+                  'rgb(255, 67, 0)',
+                  'rgb(255, 81, 0)',  
+                  'rgb(255, 94, 0)',
+                  'rgb(255, 107, 0)', 
+                  'rgb(255, 121, 0)',
+                  'rgb(255, 134, 0)', 
+                  'rgb(255, 148, 0)',
+                  'rgb(255, 161, 0)', 
+                  'rgb(255, 174, 0)',
+                  'rgb(255, 188, 0)', 
+                  'rgb(255, 201, 0)',
+                  'rgb(255, 215, 0)', 
+                  'rgb(255, 228, 0)',
+                  'rgb(255, 242, 0)', 
+                  'rgb(255, 255, 0)'];
+
 const newsPhrases = [
     'Global Leaders Announce Climate Change Action Plan Today',
     'Tech Giants Unveil Breakthrough Artificial Intelligence Innovations',
@@ -47,6 +68,8 @@ export default function Cloud({ count = 20, radius = 20 }) {
       }
       return temp
     }, [count, radius])
+
+
   
-     return words.map(([pos, phrase], index) => <Word key={index} position={pos} children={phrase} />)
+     return words.map(([pos, phrase], index) => <Word key={index} position={pos} children={phrase} color={colorArr[index]} />)
   }
