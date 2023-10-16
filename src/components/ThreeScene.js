@@ -1,7 +1,7 @@
 // src/components/ThreeScene.js
 import React, { useRef, useState, useMemo, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Text, TrackballControls } from '@react-three/drei';
+import { Html, Text, TrackballControls } from '@react-three/drei';
 import * as THREE from 'three';
 import useSWR from 'swr';
 
@@ -15,8 +15,22 @@ export default function ThreeScene() {
 
   const headlines = data ? data.data.map(item => item.title) : [];
 
+  if (!headlines) {
+    return (
+    <Canvas 
+    onCreated={({ gl }) => {
+        gl.setClearColor(new THREE.Color('#000000')); // Set background color to black
+      }}
+      style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%' }}
+    dpr={[1, 2]}
+    camera={{ position: [0, 0, 70], fov: 90, near: 1, far: 200 }}>
+      <fog attach="fog" args={['#000000', 0, 100]} />
+      </Canvas>
+    )
+  }
+
   return (
-    data ? 
+    <div>
     <Canvas 
     onCreated={({ gl }) => {
         gl.setClearColor(new THREE.Color('#000000')); // Set background color to black
@@ -28,11 +42,6 @@ export default function ThreeScene() {
       <Cloud count={20} radius={40} newsPhrases={ headlines } />
       <TrackballControls />
     </Canvas>
-    :
-    <Canvas
-    onCreated={({ gl }) => {
-      gl.setClearColor(new THREE.Color('#000000')); // Set background color to black
-    }}
-    ></Canvas>
+    </div>
   );
 }

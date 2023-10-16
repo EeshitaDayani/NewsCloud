@@ -10,8 +10,8 @@ lastWeekDate.setDate(todayDate.getDate() - 7);
 
 // Import the configuration from the JSON file
 const config = {
-  "q": "usa",
-  "sources": "bbc-news",
+  "q": "war",
+  "sources": "bbc-news,google-news",
   "searchIn": "title,description",
   "from": lastWeekDate.toISOString().slice(0, 10),
   "to": todayDate.toISOString().slice(0, 10),
