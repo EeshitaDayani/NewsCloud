@@ -9,10 +9,8 @@ import Cloud from './Cloud';
 
 const fetcher = (url) => fetch(url).then(r => r.json())
 
-export default function ThreeScene() {
-
-  const { data, error } = useSWR('/api/fetchNews', fetcher);
-
+export default function ThreeScene({ searchQuery }) {
+  const { data, error } = useSWR(`/api/fetchNews?q=${searchQuery}`, fetcher);
   const headlines = data ? data.data.map(item => item.title) : [];
 
   if (!headlines) {

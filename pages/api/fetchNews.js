@@ -1,4 +1,3 @@
-const { NextApiRequest, NextApiResponse } = require('next');
 const NewsAPI = require('newsapi');
 
 const newsapi = new NewsAPI(process.env.NEXT_PUBLIC_NEWS_API);
@@ -8,30 +7,27 @@ const todayDate = new Date();
 const lastWeekDate = new Date();
 lastWeekDate.setDate(todayDate.getDate() - 7);
 
-// Import the configuration from the JSON file
-const config = {
-  "q": "war",
-  "sources": "bbc-news,google-news",
-  "searchIn": "title,description",
-  "from": lastWeekDate.toISOString().slice(0, 10),
-  "to": todayDate.toISOString().slice(0, 10),
-  "language": "en",
-  "sortBy": "popularity",
-  "pageSize": numArticles,
-  "page": 1
-}
+const todayDateStr = todayDate.toISOString().slice(0, 10);
+const lastWeekDateStr = lastWeekDate.toISOString().slice(0, 10);
+
 
 export default async function handler(req, res) {
   try {
+    const query = req.query;
+    const { q } = query;
+
+    console.log("q value: ", q);
+
     const response = await newsapi.v2.everything({
-      q: config.q,
-      sources: config.sources,
-      from: config.from,
-      to: config.to,
-      language: config.language,
-      sortBy: config.sortBy,
-      pageSize: config.pageSize,
-      page: config.page
+      q: q || "red",
+      sources: "bbc-news,google-news",
+      searchIn: "title,description",
+      from: lastWeekDateStr,
+      to: todayDateStr,
+      language: "en",
+      sortBy: "popularity",
+      pageSize: numArticles,
+      page: 1
     });
 
     const data = response.articles.map((article, index) => ({

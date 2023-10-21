@@ -9,7 +9,6 @@ for (let i = 0; i < 20; i++) {
 }
 
 export default function Cloud({ count = 20, radius = 20, newsPhrases }) {
-  // const newsPhrases = await getNewsPhrases().data;
     const words = useMemo(() => {
       const temp = []
       const spherical = new THREE.Spherical()
@@ -31,7 +30,7 @@ export default function Cloud({ count = 20, radius = 20, newsPhrases }) {
         temp.push([new THREE.Vector3(x * spiralRadius, y * spiralRadius, z * spiralRadius), newsPhrases[index], colorArr[i]]);
     }
     return temp;
-  }, [count, radius]);
+  }, [count, radius, newsPhrases]);
 
   return words.map(([pos, phrase, color], index) => (
     <Word key={index} position={pos} children={phrase} color={color} />
