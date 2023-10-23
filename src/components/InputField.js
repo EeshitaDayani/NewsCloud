@@ -23,7 +23,7 @@ export default function InputField({ onEnter }) {
 
   return (
     <input
-      style={{ ...sharedFieldStyle, top: '10px', maxWidth: '9.4vw', color: `rgba(230, 222, 209, ${isClicked ? '1' : '0.6'})` }}
+      style={{ ...sharedFieldStyle, top: '10px', maxWidth: '9.55vw', color: `rgba(230, 222, 209, ${isClicked ? '1' : '0.6'})` }}
       type="text"
       placeholder="Keyword"
       onFocus={handleFocus}

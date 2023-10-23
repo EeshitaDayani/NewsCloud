@@ -1,27 +1,22 @@
+import getDate from '@/src/utils/getDate';
 const NewsAPI = require('newsapi');
 
 const newsapi = new NewsAPI(process.env.NEXT_PUBLIC_NEWS_API);
 const numArticles = 20;
-
-const todayDate = new Date();
-const lastWeekDate = new Date();
-lastWeekDate.setDate(todayDate.getDate() - 7);
-
-const todayDateStr = todayDate.toISOString().slice(0, 10);
-const lastWeekDateStr = lastWeekDate.toISOString().slice(0, 10);
-
+const today = getDate('today');
+const lastWeek = getDate('lastWeek');
 
 export default async function handler(req, res) {
   try {
     const query = req.query;
-    const { q } = query;
+    const { q, from } = query;
 
     const response = await newsapi.v2.everything({
       q: q || "war",
       sources: "bbc-news,google-news",
       searchIn: "title,description",
-      from: lastWeekDateStr,
-      to: todayDateStr,
+      from: from || lastWeek,
+      to: today,
       language: "en",
       sortBy: "popularity",
       pageSize: numArticles,

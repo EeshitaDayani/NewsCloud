@@ -6,12 +6,13 @@ import * as THREE from 'three';
 import useSWR from 'swr';
 
 import Cloud from './Cloud';
+import getDate from './../utils/getDate';
 
 const fetcher = (url) => fetch(url).then(r => r.json())
 const fontProps = { fontSize: 5.5, letterSpacing: -0.05, lineHeight: 1, 'material-toneMapped': false, color: 'white'}
 
-export default function ThreeScene({ searchQuery }) {
-  const { data } = useSWR(`/api/fetchNews?q=${searchQuery}`, fetcher);
+export default function ThreeScene({ searchQuery, date }) {
+  const { data } = useSWR(`/api/fetchNews?q=${searchQuery}&from=${getDate(date)}`, fetcher);
   const { error } = data ? data : '';
   const headlines = data && data.data ? data.data.map(item => item.title) : [];
 
@@ -54,7 +55,7 @@ export default function ThreeScene({ searchQuery }) {
     dpr={[1, 2]}
     camera={{ position: [0, 0, 70], fov: 90, near: 1, far: 200 }}>
       <fog attach="fog" args={['#121212', 0, 100]} />
-      <Cloud radius={40} newsPhrases={ headlines } />
+      <Cloud radius={40} headlines={ headlines } />
       <TrackballControls />
     </Canvas>
     </div>

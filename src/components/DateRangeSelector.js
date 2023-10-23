@@ -25,8 +25,6 @@ export default function DateRangeSelector({ onSelect }) {
         onBlur={handleBlur}
         onChange={handleSelect}
       >
-        <option value="today">Today</option>
-        <option value="yesterday">Yesterday</option>
         <option value="lastWeek">Last Week</option>
         <option value="lastMonth">Last Month</option>
         <option value="custom">Custom</option>
