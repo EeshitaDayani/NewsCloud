@@ -3,7 +3,7 @@ import { useFrame } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
 import * as THREE from 'three';
 
-export default function Word({ children, color, ...props }) {
+export default function Word({ children, color, url, ...props }) {
   const fontProps = { fontSize: 2.5, letterSpacing: -0.05, lineHeight: 1, 'material-toneMapped': false }
   const ref = useRef()
   const [hovered, setHovered] = useState(false)
@@ -12,8 +12,7 @@ export default function Word({ children, color, ...props }) {
   const out = () => setHovered(false)
 
   const click = () => {
-    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(children)}`
-    window.open(searchUrl, '_blank')
+    window.open(url, '_blank')
   }
 
   // Change the mouse cursor on hover

@@ -28,12 +28,12 @@ export default function Cloud({ radius = 20, headlines }) {
         const spiralRadius = radius
 
         const index = i % headlines.length;
-        temp.push([new THREE.Vector3(x * spiralRadius, y * spiralRadius, z * spiralRadius), headlines[index], colorArr[i]]);
+        temp.push([new THREE.Vector3(x * spiralRadius, y * spiralRadius, z * spiralRadius), headlines[index].title, colorArr[i]]);
     }
     return temp;
   }, [count, radius, headlines]);
 
   return words.map(([pos, phrase, color], index) => (
-    <Word key={index} position={pos} children={phrase} color={color} />
+    <Word key={index} position={pos} children={phrase} color={color} url={headlines[index].url} />
   ))
 }

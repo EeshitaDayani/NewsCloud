@@ -12,7 +12,6 @@ export default function Home() {
   };
 
   const handleSelect = (inputValue) => {
-    console.log(inputValue);
     setDate(inputValue);
   };
 

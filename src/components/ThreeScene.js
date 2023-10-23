@@ -9,12 +9,16 @@ import Cloud from './Cloud';
 import getDate from './../utils/getDate';
 
 const fetcher = (url) => fetch(url).then(r => r.json())
-const fontProps = { fontSize: 5.5, letterSpacing: -0.05, lineHeight: 1, 'material-toneMapped': false, color: 'white'}
+const fontProps = { fontSize: 5.5, 
+                    letterSpacing: -0.05, 
+                    lineHeight: 1, 
+                    'material-toneMapped': false, 
+                    color: 'white'}
 
 export default function ThreeScene({ searchQuery, date }) {
   const { data } = useSWR(`/api/fetchNews?q=${searchQuery}&from=${getDate(date)}`, fetcher);
   const { error } = data ? data : '';
-  const headlines = data && data.data ? data.data.map(item => item.title) : [];
+  const headlines = data && data.data ? data.data.map(item => ({'title': item.title, 'url': item.url})) : [];
 
   if (error) {
     return (
@@ -31,7 +35,6 @@ export default function ThreeScene({ searchQuery, date }) {
   }
 
   if (!headlines) {
-    console.log("headlines error")
     return (
     <Canvas 
     onCreated={({ gl }) => {

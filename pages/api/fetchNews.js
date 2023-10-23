@@ -24,7 +24,8 @@ export default async function handler(req, res) {
     });
 
     const data = response.articles.map((article, index) => ({
-      title: article.title
+      title: article.title,
+      url: article.url
     }));
 
     res.status(200).json({ data: data });
