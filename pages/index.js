@@ -5,8 +5,8 @@ import InputField from '../src/components/InputField';
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const handleInputChange = (input) => {
-    setSearchQuery(input);
+  const handleEnter = (inputValue) => {
+    setSearchQuery(inputValue);
   };
 
   return (
@@ -15,7 +15,7 @@ export default function Home() {
         <ThreeScene searchQuery={searchQuery}/>
       </div>
       <div style={{position: 'absolute', top: 0, right: 0}}>
-        <InputField onInputChange={handleInputChange}/>
+        <InputField onEnter={handleEnter}/>
       </div>
     </div>
   );

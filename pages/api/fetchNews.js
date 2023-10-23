@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     const { q } = query;
 
     const response = await newsapi.v2.everything({
-      q: "money",
+      q: q || "war",
       sources: "bbc-news,google-news",
       searchIn: "title,description",
       from: lastWeekDateStr,

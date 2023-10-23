@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 
-export default function InputField({ onInputChange }) {
+export default function InputField({ onEnter }) {
   const [isClicked, setIsClicked] = useState(false);
-  const [inputValue, setInputValue] = useState('');
 
   const handleFocus = () => {
     setIsClicked(true);
@@ -12,10 +11,13 @@ export default function InputField({ onInputChange }) {
     setIsClicked(false);
   };
 
-  const handleChange = (e) => {
-    setInputValue(e.target.value);
-    // Pass the input value to the parent component or function
-    onInputChange(e.target.value);
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      // Call the onEnter callback with the current input value
+      if (onEnter) {
+        onEnter(e.target.value);
+      }
+    }
   };
 
   const inputStyle = {
@@ -43,8 +45,7 @@ export default function InputField({ onInputChange }) {
       placeholder="Type here"
       onFocus={handleFocus}
       onBlur={handleBlur}
-      onChange={handleChange} // Capture input changes
-      value={inputValue} // Control the input value with state
+      onKeyPress={handleKeyPress} // Handle Enter key press
     />
   );
 }
