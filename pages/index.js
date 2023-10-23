@@ -9,8 +9,6 @@ export default function Home() {
     setSearchQuery(input);
   };
 
-  console.log("index.js searchQuery: ", searchQuery)
-
   return (
     <div>
       <div>

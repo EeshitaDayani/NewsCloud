@@ -8,7 +8,8 @@ for (let i = 0; i < 20; i++) {
   colorArr.push(color);
 }
 
-export default function Cloud({ count = 20, radius = 20, newsPhrases }) {
+export default function Cloud({ radius = 20, newsPhrases }) {
+    const count = newsPhrases.length;
     const words = useMemo(() => {
       const temp = []
       const spherical = new THREE.Spherical()

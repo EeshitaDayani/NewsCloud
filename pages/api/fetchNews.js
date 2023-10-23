@@ -16,10 +16,8 @@ export default async function handler(req, res) {
     const query = req.query;
     const { q } = query;
 
-    console.log("q value: ", q);
-
     const response = await newsapi.v2.everything({
-      q: q || "red",
+      q: "money",
       sources: "bbc-news,google-news",
       searchIn: "title,description",
       from: lastWeekDateStr,
