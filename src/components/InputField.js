@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { sharedFieldStyle } from '@/styles/fieldStyles';
 
 export default function InputField({ onEnter }) {
   const [isClicked, setIsClicked] = useState(false);
@@ -20,29 +21,11 @@ export default function InputField({ onEnter }) {
     }
   };
 
-  const inputStyle = {
-    position: 'absolute',
-    top: '10px', // Adjust the top position as needed
-    right: '10px', // Adjust the right position as needed
-    backgroundColor: `rgba(0, 0, 0, ${isClicked ? '0.6' : '0'})`,
-    color: `rgba(230, 222, 209, ${isClicked ? '1' : '0.6'})`,
-    border: '2px',
-    margin: '20px',
-    padding: '4px',
-    fontSize: '15px',
-    width: '10vw',
-    outerHeight: '5vw',
-    opacity: '0.6',
-    outline: 'none',
-    transition: 'color 0.3s ease',
-    zIndex: 1, // Ensure the input box is above other elements
-  };
-
   return (
     <input
-      style={inputStyle}
+      style={{ ...sharedFieldStyle, top: '10px', maxWidth: '9.4vw', color: `rgba(230, 222, 209, ${isClicked ? '1' : '0.6'})` }}
       type="text"
-      placeholder="Type here"
+      placeholder="Keyword"
       onFocus={handleFocus}
       onBlur={handleBlur}
       onKeyPress={handleKeyPress} // Handle Enter key press

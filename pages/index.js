@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ThreeScene from '../src/components/ThreeScene';
 import InputField from '../src/components/InputField';
+import DateRangeSelector from '../src/components/DateRangeSelector';
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -14,8 +15,9 @@ export default function Home() {
       <div>
         <ThreeScene searchQuery={searchQuery}/>
       </div>
-      <div style={{position: 'absolute', top: 0, right: 0}}>
+      <div>
         <InputField onEnter={handleEnter}/>
+        <DateRangeSelector/>
       </div>
     </div>
   );
