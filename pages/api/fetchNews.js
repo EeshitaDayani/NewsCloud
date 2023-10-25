@@ -1,7 +1,7 @@
 import getDate from '@/src/utils/getDate';
 const NewsAPI = require('newsapi');
 
-const newsapi = new NewsAPI(process.env.NEXT_PUBLIC_NEWS_API);
+const newsapi = new NewsAPI('83780bc6c4234075bd7ed62bd2d1276c');
 const numArticles = 20;
 const today = getDate('today');
 const lastWeek = getDate('lastWeek');
