@@ -35,7 +35,7 @@ export default function ThreeScene({ searchQuery, date }) {
               dpr={[1, 2]}
               camera={{ position: [0, 0, 70], fov: 90, near: 1, far: 200 }}>
         <fog attach="fog" args={['#121212', 0, 100]} />
-        <Text children="No search results" {...fontProps} />
+        <Text children="Sorry, an error occurred." {...fontProps} />
       </Canvas>
     );
   }

@@ -28,12 +28,12 @@ export default function Home() {
           <ThreeScene searchQuery={searchQuery} date={date} />
         </div>
         <div id="hello" styles={{ padding: 0 }} >
-          <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
+          <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' }, '*': { userSelect: 'none' } }} />
           <CssBaseline />
 
           <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant="h3" noWrap sx={{ flexGrow: 1 }}>
-            <span style={{ color: 'white' }}>NEWS</span>
+          <Typography variant="h3" noWrap fontFamily={'Inter'} sx={{ flexGrow: 1}}>
+            <span style={{ color: 'white'}}>NEWS</span>
             <span style={{ color: 'grey' }}>CLOUD</span>
           </Typography>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
