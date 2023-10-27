@@ -1,5 +1,17 @@
 import React, { useState } from 'react';
-import { sharedFieldStyle } from '@/styles/fieldStyles';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 export default function DateRangeSelector({ onSelect }) {
     const [isClicked, setIsClicked] = useState(false);
@@ -14,20 +26,35 @@ export default function DateRangeSelector({ onSelect }) {
 
     const handleSelect = (e) => {
         if (onSelect) {
-          onSelect(e.target.value);
+          onSelect(event.target.value);
         }
       };
-  
-    return (
-        <select
-        style={{ ...sharedFieldStyle, top: '60px', minWidth: '10vw', color: `rgba(230, 222, 209, ${isClicked ? '1' : '0.6'})` }}
-        onFocus={handleFocus}
-        onBlur={handleBlur}
-        onChange={handleSelect}
-      >
-        <option value="lastWeek">Last Week</option>
-        <option value="lastMonth">Last Month</option>
-        <option value="custom">Custom</option>
-      </select>
-    );
+
+      return (
+        
+        <Box sx={{ minWidth: 120 }}>
+          
+          <FormControl fullWidth>
+            <ThemeProvider theme={darkTheme}>
+              <InputLabel id="demo-simple-select-label">Time</InputLabel>
+              <Select
+                sx= {{
+                  color: 'white'
+
+                }}
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                onFocus={handleFocus}
+                onBlur={handleBlur}
+                onChange={handleSelect}
+                label="Time"
+              >
+                <MenuItem value="lastWeek">Last Week</MenuItem>
+                <MenuItem value="lastMonth">Last Month</MenuItem>
+                <MenuItem value="custom">Custom</MenuItem>
+              </Select>
+            </ThemeProvider>
+          </FormControl>
+        </Box>
+      );
   }

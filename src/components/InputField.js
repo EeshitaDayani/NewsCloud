@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { sharedFieldStyle } from '@/styles/fieldStyles';
+import TextField from '@mui/material/TextField';
+
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 export default function InputField({ onEnter }) {
-  const [isClicked, setIsClicked] = useState(false);
-
-  const handleFocus = () => {
-    setIsClicked(true);
-  };
-
-  const handleBlur = () => {
-    setIsClicked(false);
-  };
-
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       // Call the onEnter callback with the current input value
@@ -22,13 +22,13 @@ export default function InputField({ onEnter }) {
   };
 
   return (
-    <input
-      style={{ ...sharedFieldStyle, top: '10px', maxWidth: '9.55vw', color: `rgba(230, 222, 209, ${isClicked ? '1' : '0.6'})` }}
-      type="text"
-      placeholder="Keyword"
-      onFocus={handleFocus}
-      onBlur={handleBlur}
-      onKeyPress={handleKeyPress} // Handle Enter key press
-    />
+    <div>
+      <div style={{ zIndex:1 }} >
+        <ThemeProvider theme={darkTheme}>
+          <TextField id="outlined-basic" label="Keyword" variant="outlined" onKeyPress={handleKeyPress} />
+        </ThemeProvider>
+      </div>
+    </div>
+    
   );
 }
