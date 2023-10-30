@@ -1,9 +1,9 @@
-import React, { useRef, useState, useMemo, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
 import * as THREE from 'three';
 
-export default function Word({ children, color, url, ...props }) {
+export default function Word({ children, color, hoverColor, url, ...props }) {
   const fontProps = { font: '/Inter-Bold.woff', fontSize: 2.5, letterSpacing: -0.05, lineHeight: 1, 'material-toneMapped': false }
   const ref = useRef()
   const [hovered, setHovered] = useState(false)
@@ -25,8 +25,21 @@ export default function Word({ children, color, url, ...props }) {
   useFrame(({ camera }) => {
     // Make text face the camera
     ref.current.quaternion.copy(camera.quaternion);
-    ref.current.material.color.copy(new THREE.Color(color));
+    
+    // Update text color based on hover state
+    ref.current.material.color.copy(new THREE.Color(hovered ? hoverColor : color));
   })
 
-  return <Text ref={ref} onPointerOver={over} onPointerOut={out} onPointerDown={click} {...props} {...fontProps} children={children} />
+  return (
+    <Text
+      ref={ref}
+      onPointerOver={over}
+      onPointerOut={out}
+      onPointerDown={click}
+      {...props}
+      {...fontProps}
+      color={color} // Set initial color
+      children={children}
+    />
+  );
 }
