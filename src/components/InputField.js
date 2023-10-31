@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { sharedFieldStyle } from '@/styles/fieldStyles';
 import TextField from '@mui/material/TextField';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
