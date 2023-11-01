@@ -3,8 +3,10 @@ import { useFrame } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
 import * as THREE from 'three';
 
-export default function Word({ children, color, hoverColor, url, ...props }) {
-  const fontProps = { font: '/Inter-Bold.woff', fontSize: 2.5, letterSpacing: -0.05, lineHeight: 1, 'material-toneMapped': false }
+export default function Word({ children, color, device, hoverColor, url, ...props }) {
+  const fontSize = (device === 'mobile') ? 1.5 : 2.5;
+  
+  const fontProps = { font: '/Inter-Bold.woff', fontSize, letterSpacing: -0.05, lineHeight: 1, 'material-toneMapped': false }
   const ref = useRef()
   const [hovered, setHovered] = useState(false)
 

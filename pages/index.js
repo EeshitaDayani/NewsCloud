@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ThreeScene from '../src/components/ThreeScene';
 import Header from '../src/components/Header';
 import InputField from '../src/components/InputField';
@@ -8,6 +8,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import CssBaseline from '@mui/material/CssBaseline';
+import styles from '@/styles/Home.module.css';
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -21,29 +22,65 @@ export default function Home() {
     setDate(inputValue);
   };
 
+  const [device, setDevice] = useState('mobile'); // Initial font size
+
+  useEffect(() => {
+    const calculateScreenSize = () => {
+      const screenWidth = window.innerWidth;
+      // Adjust this logic based on your requirements
+      if (screenWidth < 480) {
+        return 'mobile';
+      } else if (screenWidth < 768) {
+        return 'tablet';
+      } else {
+        return 'desktop';
+      }
+    };
+
+    // Set the initial font size
+    setDevice(calculateScreenSize());
+
+    // Update font size on window resize
+    const handleResize = () => {
+      setDevice(calculateScreenSize());
+    };
+
+    // Attach the resize event listener
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     <div>
-      <div style={{ display: 'grid',  gridGap: '20px' }}>
-        <div>
-          <ThreeScene searchQuery={searchQuery} date={date} />
+      <div className={styles.container}>
+        <div className={styles.threeSceneContainer}>
+          <ThreeScene searchQuery={searchQuery} date={date} device={device} />
         </div>
-        <div id="hello" styles={{ padding: 0 }} >
+        <div className={styles.contentContainer}>
           <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' }, '*': { userSelect: 'none' } }} />
           <CssBaseline />
 
-          <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Typography variant="h3" noWrap fontFamily={'Inter'} sx={{ flexGrow: 1}}>
-            <span style={{ color: 'white'}}>NEWS</span>
-            <span style={{ color: 'grey' }}>CLOUD</span>
-          </Typography>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                <div style={{ marginRight: '8px', marginTop: '9px' }}>
-                  <InputField onEnter={handleEnter} />
-                </div>
-                <div style={{ marginLeft: '8px', marginTop: '9px' }}>
-                  <DateRangeSelector onSelect={handleSelect} />
-                </div>
+          <Toolbar className={styles.toolbar}>
+            <Typography noWrap fontFamily={'Inter'} className={styles.title}>
+              <span className={styles.titlePartOne}>
+                NEWS
+              </span>
+              <span className={styles.titlePartTwo}>
+                CLOUD
+              </span>
+            </Typography>
+            <div className={styles.inputContainer}>
+              <div className={styles.inputField}>
+                <InputField onEnter={handleEnter} />
               </div>
+              <div className={styles.dateSelector}>
+                <DateRangeSelector onSelect={handleSelect} />
+              </div>
+            </div>
           </Toolbar>
         </div>
       </div>

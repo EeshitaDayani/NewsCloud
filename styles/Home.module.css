@@ -3,15 +3,15 @@
 .container {
   display: grid;
   grid-gap: 20px;
+} 
+
+.threeSceneContainer {
+  overflow: hidden; 
 }
 
 .contentContainer {
+  width: 100%;
   padding: 0;
-}
-
-.threeSceneContainer {
-  width: 100%; /* Take full width of its parent */
-  overflow: hidden; /* Prevent overflow */
 }
 
 .toolbar {
@@ -19,11 +19,11 @@
   justify-content: space-between;
   flex-direction: column;
   align-items: center;
-}
+} 
 
 .title {
   font-size: x-large;
-  margin-bottom: 8px; /* Add margin below the title */
+  margin-bottom: 8px;
 }
 
 .titlePartOne {
@@ -35,20 +35,51 @@
 }
 
 .inputContainer {
-  margin-top: 8px; /* Add margin above the input container */
+  margin-top: 8px; 
   display: flex;
 }
 
 .inputField {
   margin-right: 8px;
 }
+
 .dateSelector {
-  margin-left: 8px; /* Adjust margin as needed */
+  margin-left: 8px; 
+} 
+
+@media screen and (min-width: 768px) {
+  .toolbar {
+    justify-content: space-between;
+    flex-direction: row; 
+  } 
+
+  .title {
+    font-size: 45px;
+    justify-content: flex-start;
+  }
+
+  .inputContainer {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row; 
+  }
+
+  .inputField {
+    margin-right: 8px;
+  }
+
+  .dateSelector {
+    margin-left: 8px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+
 }
 
 
+
 /* TODO: 
-- add tablet and desktop styles
 - No need to implement vertical scroll for phone
 - change the string methids for identifying devices
 - add calendar

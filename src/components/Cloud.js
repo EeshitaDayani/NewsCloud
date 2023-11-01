@@ -8,7 +8,35 @@ for (let i = 0; i < 20; i++) {
   colorArr.push(color);
 }
 
-export default function Cloud({ radius = 20, headlines }) {
+
+// ... Import statements ...
+
+export default function Cloud({ headlines, device, radius }) {
+  if (device === 'mobile') {
+    const count = headlines.length;
+    const wheelRadius = 35; // Set a fixed radius for the wheel
+
+    const words = useMemo(() => {
+      const temp = [];
+      const deltaY = (2 * Math.PI) / count; // Calculate the angular spacing between headlines
+
+      for (let i = 0; i < count; i++) {
+        const theta = deltaY * i; // Distribute along the angular axis
+
+        const x = wheelRadius * Math.sin(theta); // Position along the circular path
+        const y = wheelRadius * Math.cos(theta); // Position along the height
+        const z = 0; // Center the words along the Z-axis
+
+        temp.push([new THREE.Vector3(x, y, z), headlines[i].title, colorArr[i]]);
+      }
+
+      return temp;
+    }, [count, headlines]);
+
+    return words.map(([pos, phrase, color], index) => (
+      <Word key={index} position={pos} device={device} children={phrase} color={color} url={headlines[index].url} />
+    ));
+  } else {
     const count = headlines.length;
     const words = useMemo(() => {
       const temp = []
@@ -36,4 +64,6 @@ export default function Cloud({ radius = 20, headlines }) {
   return words.map(([pos, phrase, color], index) => (
     <Word key={index} position={pos} children={phrase} color={color} url={headlines[index].url} />
   ))
+  }
+  
 }
