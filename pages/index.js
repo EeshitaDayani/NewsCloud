@@ -65,7 +65,7 @@ export default function Home() {
           <CssBaseline />
 
           <Toolbar className={styles.toolbar}>
-            <Typography noWrap fontFamily={'Inter'} className={styles.title}>
+            <Typography variant='h3' noWrap fontFamily={'Inter'} className={styles.title}>
               <span className={styles.titlePartOne}>
                 NEWS
               </span>
