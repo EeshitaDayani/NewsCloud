@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ThreeScene from '../src/components/ThreeScene';
-import Header from '../src/components/Header';
+import { useRouter } from 'next/router';
 import InputField from '../src/components/InputField';
 import DateRangeSelector from '../src/components/DateRangeSelector';
 
@@ -20,6 +20,11 @@ export default function Home() {
 
   const handleSelect = (inputValue) => {
     setDate(inputValue);
+  };
+
+  const router = useRouter();
+  const handleRefresh = () => {
+    router.reload();
   };
 
   const [device, setDevice] = useState('mobile'); // Initial font size
@@ -65,14 +70,16 @@ export default function Home() {
           <CssBaseline />
 
           <Toolbar className={styles.toolbar}>
-            <Typography variant='h3' noWrap fontFamily={'Inter'} className={styles.title}>
-              <span className={styles.titlePartOne}>
-                NEWS
-              </span>
-              <span className={styles.titlePartTwo}>
-                CLOUD
-              </span>
-            </Typography>
+            <div onClick={handleRefresh} className={styles.title}>
+              <Typography variant='h3' noWrap fontFamily={'Inter'}>
+                <span className={styles.titlePartOne}>
+                  NEWS
+                </span>
+                <span className={styles.titlePartTwo}>
+                  CLOUD
+                </span>
+              </Typography>
+            </div>
             <div className={styles.inputContainer}>
               <div className={styles.inputField}>
                 <InputField onEnter={handleEnter} />
