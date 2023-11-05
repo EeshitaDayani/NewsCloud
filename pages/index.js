@@ -27,27 +27,19 @@ export default function Home() {
     router.reload();
   };
 
-  const [device, setDevice] = useState('mobile'); // Initial font size
+  const [isMobile, setIsMobile] = useState(true); // Initial font size
 
   useEffect(() => {
     const calculateScreenSize = () => {
-      const screenWidth = window.innerWidth;
-      // Adjust this logic based on your requirements
-      if (screenWidth < 480) {
-        return 'mobile';
-      } else if (screenWidth < 768) {
-        return 'tablet';
-      } else {
-        return 'desktop';
-      }
+      return window.innerWidth < 480
     };
 
     // Set the initial font size
-    setDevice(calculateScreenSize());
+    setIsMobile(calculateScreenSize());
 
     // Update font size on window resize
     const handleResize = () => {
-      setDevice(calculateScreenSize());
+      setIsMobile(calculateScreenSize());
     };
 
     // Attach the resize event listener
@@ -63,14 +55,14 @@ export default function Home() {
     <div>
       <div className={styles.container}>
         <div className={styles.threeSceneContainer}>
-          <ThreeScene searchQuery={searchQuery} date={date} device={device} />
+          <ThreeScene searchQuery={searchQuery} date={date} isMobile={isMobile} />
         </div>
         <div className={styles.contentContainer}>
           <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' }, '*': { userSelect: 'none' } }} />
           <CssBaseline />
 
           <Toolbar className={styles.toolbar}>
-            <div onClick={handleRefresh} className={styles.title}>
+            <div className={styles.title} onClick={handleRefresh}>
               <Typography variant='h3' noWrap fontFamily={'Inter'}>
                 <span className={styles.titlePartOne}>
                   NEWS

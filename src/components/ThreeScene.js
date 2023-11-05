@@ -15,7 +15,7 @@ const fontProps = { fontSize: 5.5,
                     'material-toneMapped': false, 
                     color: 'white'}
 
-export default function ThreeScene({ searchQuery, date, device }) {
+export default function ThreeScene({ searchQuery, date, isMobile }) {
   const { data } = useSWR(`/api/fetchNews?q=${searchQuery}&from=${getDate(date)}`, fetcher);
   const { error } = data ? data : '';
   const headlines = data && data.data ? data.data.map(item => ({'title': item.title, 'url': item.url})) : [];
@@ -54,7 +54,7 @@ export default function ThreeScene({ searchQuery, date, device }) {
             dpr={[1, 2]}
             camera={{ position: [0, 0, 70], fov: 90, near: 1, far: 200 }}>
       <fog attach="fog" args={['#121212', 0, 100]} />
-      <Cloud radius={40} headlines={ headlines } device={device}/>
+      <Cloud radius={40} headlines={ headlines } isMobile={isMobile}/>
       <TrackballControls />
     </Canvas>
   )
