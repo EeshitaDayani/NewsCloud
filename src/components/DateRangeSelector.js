@@ -29,7 +29,7 @@ export default function DateRangeSelector({ onSelect }) {
 
     const handleSelect = (e) => {
         if (onSelect) {
-          onSelect(event.target.value);
+          onSelect(e.target.value);
         }
       };
 
