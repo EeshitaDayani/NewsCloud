@@ -1,7 +1,7 @@
 // src/components/ThreeScene.js
 import React, { useRef, useState, useMemo, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Html, Text, TrackballControls } from '@react-three/drei';
+import { Billboard, Text, TrackballControls } from '@react-three/drei';
 import * as THREE from 'three';
 import useSWR from 'swr';
 
@@ -31,7 +31,9 @@ export default function ThreeScene({ searchQuery, date, isMobile }) {
         camera={{ position: [0, 0, 70], fov: 90, near: 1, far: 200 }}
       >
         <fog attach="fog" args={['#121212', 0, 100]} />
-        <Text children="Loading..." {...fontProps} />
+        <Billboard>
+          <Text children="Loading..." {...fontProps} />
+        </Billboard>
       </Canvas>
     );
   }
@@ -45,7 +47,9 @@ export default function ThreeScene({ searchQuery, date, isMobile }) {
         camera={{ position: [0, 0, 70], fov: 90, near: 1, far: 200 }}
       >
         <fog attach="fog" args={['#121212', 0, 100]} />
-        <Text children="Sorry, an error occurred." {...fontProps} />
+        <Billboard>
+          <Text children="Sorry, an error occurred." {...fontProps} />
+        </Billboard>
       </Canvas>
     );
   }
@@ -59,7 +63,9 @@ export default function ThreeScene({ searchQuery, date, isMobile }) {
         camera={{ position: [0, 0, 70], fov: 90, near: 1, far: 200 }}
       >
         <fog attach="fog" args={['#121212', 0, 100]} />
-        <Text children="No search results" {...fontProps} />
+        <Billboard>
+          <Text children="No search results" {...fontProps} />
+        </Billboard>
       </Canvas>
     );
   }
