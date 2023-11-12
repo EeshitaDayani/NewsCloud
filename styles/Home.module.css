@@ -48,6 +48,15 @@
   margin-left: 8px; 
 } 
 
+.github {
+  position: absolute;
+  left: 8px; 
+  bottom: 8px; 
+  fill: grey;
+  z-index: 100;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 768px) {
   .toolbar {
     justify-content: space-between;
@@ -79,13 +88,3 @@
     font-size: 50px;
   }
 }
-
-
-
-/* TODO: 
-- No need to implement vertical scroll for phone
-- change the string methids for identifying devices
-- add calendar
-- add loading screen
-
-*/

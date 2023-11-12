@@ -6,9 +6,6 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 
 const darkTheme = createTheme({
   palette: {
@@ -60,16 +57,6 @@ export default function DateRangeSelector({ onSelect }) {
               >
                 <MenuItem value="lastWeek">Last Week</MenuItem>
                 <MenuItem value="lastMonth">Last Month</MenuItem>
-                {/* <MenuItem value="custom">
-                  <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <DatePicker
-                      label="Custom"
-                      value={selectedDate}
-                      onChange={handleDateChange}
-                      renderInput={(params) => <div {...params} />}
-                    />
-                  </LocalizationProvider>
-                </MenuItem> */}
               </Select>
             </ThemeProvider>
           </FormControl>
