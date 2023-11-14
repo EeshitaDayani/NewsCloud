@@ -1,5 +1,5 @@
 # NewsCloud
-NewsCloud is a feature-rich, visually engaging fullstack application designed to streamline news consumption in a unique and immersive way. Utilizing cutting-edge technologies such as Next.js for the frontend and THREE.js for a captivating 3D visualization, NewsCloud offers a novel approach to staying informed.
+NewsCloud is a feature-rich, visually engaging fullstack application designed to streamline news consumption in a unique and immersive way. Utilizing Next.js and THREE.js for a captivating 3D visualization, NewsCloud offers a novel approach to staying informed.
 
 ## Features
 **Interactive 3D Visualization**: Immerse yourself in a visually stunning three-dimensional representation of the latest news. Explore topics and stories in a way that goes beyond traditional interfaces.
