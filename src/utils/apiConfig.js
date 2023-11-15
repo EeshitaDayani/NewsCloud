@@ -14,7 +14,7 @@ const defaultParams = {
   to: today
 };
 
-export const createApiConfig = (additionalParams = {}) => {
+export const createApiConfig = (additionalParams = { q: "", from: lastWeek }) => {
   return {
     ...additionalParams,
     ...defaultParams

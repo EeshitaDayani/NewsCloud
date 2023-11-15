@@ -2,10 +2,10 @@ import React, { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Text } from '@react-three/drei';
 import * as THREE from 'three';
+import { MOBILE_FONT, NON_MOBILE_FONT } from '@/src/utils/constants';
 
 export default function Word({ children, color, isMobile, hoverColor, url, ...props }) {
-  const fontSize = isMobile ? 1.5 : 2.5;
-
+  const fontSize = isMobile ? MOBILE_FONT : NON_MOBILE_FONT;
   const fontProps = { font: '/Inter-Bold.woff', fontSize, letterSpacing: -0.05, lineHeight: 1, 'material-toneMapped': false }
   const ref = useRef()
   const [hovered, setHovered] = useState(false)

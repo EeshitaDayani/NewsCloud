@@ -2,6 +2,8 @@
 export const HEADLINE_COUNT = 30;
 export const WHEEL_RADIUS = 35;
 export const COLOR_ARRAY = generateColorArray();
+export const MOBILE_FONT = 1.5;
+export const NON_MOBILE_FONT = 2.5;
 
 function generateColorArray() {
   const colorArr = [];
@@ -17,6 +19,3 @@ function generateColorArray() {
 
   return colorArr;
 }
-
-const MOBILE_FONT = 1.5
-const NON_MOBILE_FONT = 2.5
