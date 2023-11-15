@@ -1,29 +1,14 @@
-import getDate from '@/src/utils/getDate';
-const NewsAPI = require('newsapi');
+import { createApiConfig } from '@/src/utils/apiConfig';
+import NewsAPI from 'newsapi';
 
 const newsapi = new NewsAPI('83780bc6c4234075bd7ed62bd2d1276c');
-const numArticles = 20;
-const today = getDate('today');
-const lastWeek = getDate('lastWeek');
 
 export default async function handler(req, res) {
   try {
-    const query = req.query;
-    const { q, from } = query;
+    const apiConfig = createApiConfig(req.query);
+    const response = await newsapi.v2.everything(apiConfig);
 
-    const response = await newsapi.v2.everything({
-      q: q || "",
-      sources: "bbc-news,reuters,the-times-of-india,cnn,google-news",
-      searchIn: "title,description",
-      from: from || lastWeek,
-      to: today,
-      language: "en",
-      sortBy: "popularity",
-      pageSize: numArticles,
-      page: 1
-    });
-
-    const data = response.articles.map((article, index) => ({
+    const data = response.articles.map((article) => ({
       title: article.title,
       url: article.url
     }));
