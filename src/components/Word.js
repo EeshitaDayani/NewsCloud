@@ -40,7 +40,7 @@ export default function Word({ children, color, isMobile, hoverColor, url, ...pr
       onPointerDown={click}
       {...props}
       {...fontProps}
-      color={color} // Set initial color
+      color={color}
       children={children}
     />
   );
