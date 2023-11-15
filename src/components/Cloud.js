@@ -1,4 +1,4 @@
-import React, { useRef, useState, useMemo, useEffect } from 'react';
+import React, { useMemo } from 'react';
 import * as THREE from 'three';
 import Word from './Word';
 

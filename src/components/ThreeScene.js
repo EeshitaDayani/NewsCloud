@@ -1,6 +1,4 @@
-// src/components/ThreeScene.js
-import React, { useRef, useState, useMemo, useEffect } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas } from '@react-three/fiber';
 import { Billboard, Text, TrackballControls } from '@react-three/drei';
 import * as THREE from 'three';
 import useSWR from 'swr';
@@ -14,7 +12,6 @@ const fontProps = { fontSize: 5.5,
                     lineHeight: 1, 
                     'material-toneMapped': false, 
                     color: 'white'}
-// ... (imports)
 
 export default function ThreeScene({ searchQuery, date, isMobile }) {
   const { data, isValidating } = useSWR(`/api/fetchNews?q=${searchQuery}&from=${getDate(date)}`, fetcher);
