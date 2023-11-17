@@ -10,6 +10,4 @@ NewsCloud is a feature-rich, visually engaging fullstack application designed to
 
 **Search and Filter:** Easily find the news you're interested in with the powerful search and filtering capabilities. Customize your news feed based on keywords, topics, and date ranges.
 
-**GitHub Integration:** Stay connected with the project on GitHub. Contribute to the development, report issues, and explore the codebase to see how NewsCloud works under the hood.
-
 <img width="1722" alt="image" src="https://github.com/EeshitaDayani/NewsCloud_v2/assets/67639679/e4a3cbdf-7d68-4d5a-beae-adeeb498999d">
