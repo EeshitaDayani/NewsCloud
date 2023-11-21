@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import ThreeScene from '../src/components/ThreeScene';
 import InputField from '../src/components/InputField';
 import DateRangeSelector from '../src/components/DateRangeSelector';
+import InstructionsPopup from '../src/components/InstructionsPopup';
 
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -58,6 +59,7 @@ export default function Home() {
       <div className={styles.threeSceneContainer}>
         <ThreeScene searchQuery={searchQuery} date={date} isMobile={isMobile} />
       </div>
+      <InstructionsPopup/>
       <div className={styles.contentContainer}>
         <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' }, '*': { userSelect: 'none' } }} />
         <CssBaseline />
