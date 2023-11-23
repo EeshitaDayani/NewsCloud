@@ -38,6 +38,7 @@ export default function Word({ children, color, isMobile, hoverColor, url, ...pr
       onPointerOver={over}
       onPointerOut={out}
       onPointerDown={click}
+      onClick={click}
       {...props}
       {...fontProps}
       color={color}
