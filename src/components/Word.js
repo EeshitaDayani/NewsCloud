@@ -14,7 +14,7 @@ export default function Word({ children, color, isMobile, hoverColor, url, ...pr
   const out = () => setHovered(false)
 
   const click = () => {
-    window.open(url, '_blank')
+    isMobile ? window.location.href = url : window.open(url, '_blank')
   }
 
   // Change the mouse cursor on hover
@@ -38,7 +38,6 @@ export default function Word({ children, color, isMobile, hoverColor, url, ...pr
       onPointerOver={over}
       onPointerOut={out}
       onPointerDown={click}
-      onClick={click}
       {...props}
       {...fontProps}
       color={color}
