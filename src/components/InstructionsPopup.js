@@ -7,10 +7,10 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import CssBaseline from '@mui/material/CssBaseline';
-import { purple } from '@mui/material/colors';
-import { Center } from '@react-three/drei';
 
-const InstructionsPopup = () => {
+import styles from '@/styles/InstructionsPopup.module.css';
+
+export default function InstructionsPopup() {
   const [open, setOpen] = useState(true);
 
   const handleClose = () => {
@@ -21,9 +21,6 @@ const InstructionsPopup = () => {
   const darkTheme = createTheme({
     palette: {
       mode: 'dark',
-      text: {
-        // primary: '#000000',
-      }
     },
   });
 
@@ -32,24 +29,27 @@ const InstructionsPopup = () => {
       <CssBaseline />
       <Dialog open={open} onClose={handleClose} aria-labelledby="instructions-dialog-title" PaperProps={{ sx: { borderRadius: "20px", backgroundColor: '#000000' } }}>
         <DialogTitle id="instructions-dialog-title">Welcome to NewsCloud!</DialogTitle>
-        <DialogContent>
+        <DialogContent style={{ paddingBottom: 0 }}>
           <DialogContentText>
-            <ul style={{  listStyleType: 'disc', paddingInlineStart: '1em' }}>
-              <li>Scroll to zoom in and out.</li>
-              <li>Click and drag to pan the view.</li>
+            <ul className={styles.mobileText} style={{  listStyleType: 'disc', paddingInlineStart: '1em' }}>
+                <li>Scroll to see all headlines.</li>
+                <li>Pinch to zoom in and out.</li>
+                <li>Move left and right to rotate the view.</li>
+            </ul>
+            <ul className={styles.nonMobileText} style={{  listStyleType: 'disc', paddingInlineStart: '1em' }}>
+                <li>Scroll to zoom in and out.</li>
+                <li>Click and drag to pan the view.</li>  
             </ul>
           </DialogContentText>
         </DialogContent>
-        <DialogActions style={{ justifyContent: 'center' }}>
+        <DialogActions style={{ justifyContent: 'center', padding: '16px 24px' }}>
           <Button onClick={handleClose} sx={{
               color: '#ffffff',  // Set button text color to white
               border: '1px solid', // Add a 2px white border
-              borderRadius: '15px', // Add border-radius for rounded corners
+              borderRadius: '10px', // Add border-radius for rounded corners
             }} >Got it</Button>
         </DialogActions>
       </Dialog>
     </ThemeProvider>
   );
 };
-
-export default InstructionsPopup;
