@@ -24,6 +24,8 @@ export default function InstructionsPopup() {
     },
   });
 
+  // TODO: Add one-line description of what NewsCloud is.
+
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
