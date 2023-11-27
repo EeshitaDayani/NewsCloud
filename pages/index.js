@@ -5,6 +5,7 @@ import ThreeScene from '../src/components/ThreeScene';
 import InputField from '../src/components/InputField';
 import DateRangeSelector from '../src/components/DateRangeSelector';
 import InstructionsPopup from '../src/components/InstructionsPopup';
+import ColorScale from '../src/components/ColorScale';
 
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -94,6 +95,7 @@ export default function Home() {
           </div>
         </Toolbar>
       </div>
+      <ColorScale />
       <GitHubIcon className={styles.github} onClick={() => window.open('https://github.com/EeshitaDayani/NewsCloud_v2', '_blank')} />
     </div>
   );

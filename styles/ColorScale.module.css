@@ -1,0 +1,17 @@
+.colorscale {
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .colorscale {
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: 30px; 
+        transform: translateX(-50%);
+        z-index: 100;
+        border-radius: 25px;
+        background-color: yellow;
+        opacity: 50%;
+    }
+}
