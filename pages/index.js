@@ -65,15 +65,24 @@ export default function Home() {
         <CssBaseline />
 
         <Toolbar className={styles.toolbar}>
-          <div className={styles.title} onClick={handleRefresh}>
-            <Typography variant='h3' noWrap fontFamily={'Inter'}>
-              <span className={styles.titlePartOne}>
-                NEWS
-              </span>
-              <span className={styles.titlePartTwo}>
-                CLOUD
-              </span>
-            </Typography>
+          <div>
+            <div className={styles.title} onClick={handleRefresh}>
+              <Typography variant='h3' noWrap fontFamily={'Inter'}>
+                <span className={styles.titlePartOne}>
+                  NEWS
+                </span>
+                <span className={styles.titlePartTwo}>
+                  CLOUD
+                </span>
+              </Typography>
+            </div>
+            <div className={styles.subtitle} onClick={handleRefresh}>
+              <Typography variant='h6' noWrap fontFamily={'Inter'}>
+                <span className={styles.titlePartTwo}>
+                YOUR DAILY NEWS SNAPSHOT
+                </span>
+              </Typography>
+            </div>
           </div>
           <div className={styles.inputContainer}>
             <div className={styles.inputField}>
