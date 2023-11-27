@@ -21,7 +21,7 @@ export default function InputField({ onEnter }) {
     <div>
       <div style={{ zIndex:1 }} >
         <ThemeProvider theme={darkTheme}>
-          <TextField id="outlined-basic" label="Keyword" variant="outlined" onKeyPress={handleKeyPress} />
+          <TextField id="outlined-basic" label="Search for news" variant="outlined" onKeyPress={handleKeyPress} />
         </ThemeProvider>
       </div>
     </div>
