@@ -95,7 +95,7 @@ export default function Home() {
           </div>
         </Toolbar>
       </div>
-      <ColorScale />
+      {/* <ColorScale /> TODO: Uncomment once hover text is implemented */}
       <GitHubIcon className={styles.github} onClick={() => window.open('https://github.com/EeshitaDayani/NewsCloud_v2', '_blank')} />
     </div>
   );
