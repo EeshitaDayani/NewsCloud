@@ -1,5 +1,5 @@
 // Cloud.js
-export const HEADLINE_COUNT = 30;
+export const HEADLINE_COUNT = 25;
 export const WHEEL_RADIUS = 35;
 export const COLOR_ARRAY = generateColorArray();
 export const MOBILE_FONT = 1.5;
