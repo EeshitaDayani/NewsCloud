@@ -9,7 +9,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import styles from '@/styles/Home.module.css';
 
 export default function Home() {
-  const [isMobile, setIsMobile] = useState(true); // Initial font size
+  const [isMobile, setIsMobile] = useState(true); // TODO: Refactor to put isMobile check in CSS
   const [searchQuery, setSearchQuery] = useState('');
   const [date, setDate] = useState('lastWeek');
 
