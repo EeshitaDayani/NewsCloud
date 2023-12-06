@@ -7,6 +7,7 @@ import ColorScale from '../src/components/ColorScale';
 
 import GitHubIcon from '@mui/icons-material/GitHub';
 import styles from '@/styles/Home.module.css';
+import { GITHUB } from '@/src/utils/constants';
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(true); // TODO: Refactor to put isMobile check in CSS
@@ -43,7 +44,7 @@ export default function Home() {
       <InstructionsPopup/>
       <TopNavbar setSearchQuery={setSearchQuery} setDate={setDate} />
       {/* <ColorScale /> TODO: Uncomment once hover text is implemented */}
-      <GitHubIcon className={styles.github} onClick={() => window.open('https://github.com/EeshitaDayani/NewsCloud_v2', '_blank')} />
+      <GitHubIcon className={styles.github} onClick={() => window.open(GITHUB, '_blank')} />
     </div>
   );
 }

@@ -4,6 +4,7 @@ export const WHEEL_RADIUS = 35;
 export const COLOR_ARRAY = generateColorArray();
 export const MOBILE_FONT = 1.5;
 export const NON_MOBILE_FONT = 2.5;
+export const GITHUB = 'https://github.com/EeshitaDayani/NewsCloud_v2';
 
 function generateColorArray() {
   const colorArr = [];
