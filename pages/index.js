@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-import ThreeScene from '../src/components/ThreeScene';
-import TopNavbar from '../src/components/TopNavbar';
-import InstructionsPopup from '../src/components/InstructionsPopup';
-import ColorScale from '../src/components/ColorScale';
+import ThreeScene from '@/src/components/ThreeScene';
+import TopNavbar from '@/src/components/TopNavbar';
+import InstructionsPopup from '@/src/components/InstructionsPopup';
+import BottomBar from '@/src/components/BottomBar';
 
-import GitHubIcon from '@mui/icons-material/GitHub';
 import styles from '@/styles/Home.module.css';
-import { GITHUB } from '@/src/utils/constants';
 
 export default function Home() {
   const [isMobile, setIsMobile] = useState(true); // TODO: Refactor to put isMobile check in CSS
@@ -43,8 +41,7 @@ export default function Home() {
       </div>
       <InstructionsPopup/>
       <TopNavbar setSearchQuery={setSearchQuery} setDate={setDate} />
-      {/* <ColorScale /> TODO: Uncomment once hover text is implemented */}
-      <GitHubIcon className={styles.github} onClick={() => window.open(GITHUB, '_blank')} />
+      <BottomBar/>
     </div>
   );
 }

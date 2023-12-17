@@ -1,0 +1,15 @@
+.bottomBar {
+    position: absolute;
+    bottom: 0px;
+    height: auto;
+    width: 100%
+}
+
+.github {
+    position: absolute;
+    left: 8px; 
+    bottom: 8px; 
+    color: grey;
+    z-index: 1;
+    cursor: pointer;
+  }

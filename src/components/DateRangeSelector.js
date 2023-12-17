@@ -53,6 +53,7 @@ export default function DateRangeSelector({ onSelect }) {
                 onBlur={handleBlur}
                 onChange={handleSelect}
                 label="Time"
+                defaultValue="lastWeek"
               >
                 <MenuItem value="lastWeek">Last Week</MenuItem>
                 <MenuItem value="lastMonth">Last Month</MenuItem>
