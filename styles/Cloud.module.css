@@ -1,0 +1,17 @@
+.desktopWords {
+    display: none; 
+}
+
+ @media screen and (min-width: 768px) {
+    .mobileWords {
+        display: none; 
+    }
+
+    .desktopWords {
+        display: block; 
+    }
+ }
+
+@media screen and (min-width: 1000px) {
+
+}
