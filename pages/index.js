@@ -13,25 +13,16 @@ export default function Home() {
   const [date, setDate] = useState('lastWeek');
 
   useEffect(() => {
-    const calculateScreenSize = () => {
-      return window.innerWidth < 480
-    };
-
-    // Set the initial font size
+    const calculateScreenSize = () => window.innerWidth < 768;
     setIsMobile(calculateScreenSize());
 
-    // Update font size on window resize
     const handleResize = () => {
       setIsMobile(calculateScreenSize());
     };
 
-    // Attach the resize event listener
     window.addEventListener('resize', handleResize);
 
-    // Clean up the event listener on component unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
