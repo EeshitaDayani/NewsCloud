@@ -47,7 +47,7 @@ export default function InstructionsPopup() {
               color: '#ffffff',  
               border: '1px solid', 
               borderRadius: '10px', 
-            }} >Got it</Button>
+          }} >Got it</Button>
         </DialogActions>
       </Dialog>
     </ThemeProvider>

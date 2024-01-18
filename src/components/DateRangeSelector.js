@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -13,32 +13,28 @@ const darkTheme = createTheme({
 });
 
 export default function DateRangeSelector({ onSelect }) {
-    const handleSelect = (e) => {
-        if (onSelect) {
-          onSelect(e.target.value);
-        }
-    };
+  const handleSelect = (e) => {
+      if (onSelect) {
+        onSelect(e.target.value);
+      }
+  };
 
-    return (
-      <Box sx={{ minWidth: 120 }}>
-        <FormControl fullWidth>
-          <ThemeProvider theme={darkTheme}>
-            <InputLabel id="demo-simple-select-label">Time</InputLabel>
-            <Select
-              sx= {{
-                color: 'white'
-              }}
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              onChange={handleSelect}
-              label="Time"
-              defaultValue="lastWeek"
-            >
-              <MenuItem value="lastWeek">Last Week</MenuItem>
-              <MenuItem value="lastMonth">Last Month</MenuItem>
-            </Select>
-          </ThemeProvider>
-        </FormControl>
-      </Box>
-    );
-  }
+  return (
+    <FormControl fullWidth>
+      <ThemeProvider theme={darkTheme}>
+        <InputLabel id="demo-simple-select-label">Time</InputLabel>
+        <Select
+          sx= {{ color: 'white' }}
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          onChange={handleSelect}
+          label="Time"
+          defaultValue="lastWeek"
+        >
+          <MenuItem value="lastWeek">Last Week</MenuItem>
+          <MenuItem value="lastMonth">Last Month</MenuItem>
+        </Select>
+      </ThemeProvider>
+    </FormControl>
+  );
+}

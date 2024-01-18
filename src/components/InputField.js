@@ -17,13 +17,10 @@ export default function InputField({ onEnter }) {
   };
 
   return (
-    <div>
       <div style={{ zIndex:1 }} >
         <ThemeProvider theme={darkTheme}>
           <TextField id="outlined-basic" label="Search for news" variant="outlined" onKeyPress={handleKeyPress} />
         </ThemeProvider>
       </div>
-    </div>
-    
   );
 }
