@@ -30,7 +30,7 @@ export default function InstructionsPopup() {
       <Dialog open={open} onClose={handleClose} aria-labelledby="instructions-dialog-title" PaperProps={{ sx: { borderRadius: "20px", backgroundColor: '#000000' } }}>
         <DialogTitle id="instructions-dialog-title">Welcome to NewsCloud!</DialogTitle>
         <DialogContent style={{ paddingBottom: 0 }}>
-          <DialogContentText>
+          <DialogContentText component={'div'}>
             <ul className={styles.mobileText} style={{  listStyleType: 'disc', paddingInlineStart: '1em' }}>
                 <li>Scroll to see all headlines.</li>
                 <li>Pinch to zoom in and out.</li>

@@ -4,7 +4,7 @@ import Word from './Word';
 import { COLOR_ARRAY, WHEEL_RADIUS } from '@/src/utils/constants';
 import styles from '@/styles/Cloud.module.css';
 
-const calculateMobilePosition = (i, delta, phi) => {
+const calculateMobilePosition = (i, delta) => {
   const theta = delta * i + Math.PI / 2;
   const x = WHEEL_RADIUS * Math.sin(theta);
   const y = WHEEL_RADIUS * Math.cos(theta);
