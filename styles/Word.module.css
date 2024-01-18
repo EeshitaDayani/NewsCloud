@@ -1,7 +1,7 @@
 .canvasContainer {
-    max-height: 80vh; 
-    width: fit-content; 
-    margin: auto; 
+  max-height: 80vh; 
+  width: fit-content; 
+  margin: auto; 
 }
 
 .canvas {
