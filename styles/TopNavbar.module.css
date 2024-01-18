@@ -1,75 +1,75 @@
 .contentContainer {
     width: 100%;
     padding: 0;
-  }
+}
   
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+} 
+
+.title {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.subtitle {
+  cursor: pointer;
+  text-align: center;
+}
+
+.titlePartOne {
+  color: white;
+}
+
+.titlePartTwo {
+  color: grey;
+}
+
+.inputContainer {
+  margin-top: 8px; 
+  display: flex;
+}
+
+.inputField {
+  margin-right: 8px;
+}
+
+.dateSelector {
+  margin-left: 8px; 
+} 
+
+@media screen and (min-width: 768px) {
   .toolbar {
-    display: flex;
     justify-content: space-between;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row; 
   } 
-  
+
   .title {
-    font-size: 30px;
-    cursor: pointer;
+    font-size: 45px;
+    justify-content: flex-start;
   }
-  
-  .subtitle {
-    cursor: pointer;
-    text-align: center;
-  }
-  
-  .titlePartOne {
-    color: white;
-  }
-  
-  .titlePartTwo {
-    color: grey;
-  }
-  
+
   .inputContainer {
-    margin-top: 8px; 
     display: flex;
+    justify-content: flex-end;
+    flex-direction: row; 
+    margin-bottom: auto; 
   }
-  
+
   .inputField {
     margin-right: 8px;
   }
-  
+
   .dateSelector {
-    margin-left: 8px; 
-  } 
-
-  @media screen and (min-width: 768px) {
-    .toolbar {
-      justify-content: space-between;
-      flex-direction: row; 
-    } 
-  
-    .title {
-      font-size: 45px;
-      justify-content: flex-start;
-    }
-  
-    .inputContainer {
-      display: flex;
-      justify-content: flex-end;
-      flex-direction: row; 
-      margin-bottom: auto; 
-    }
-  
-    .inputField {
-      margin-right: 8px;
-    }
-  
-    .dateSelector {
-      margin-left: 8px;
-    }
+    margin-left: 8px;
   }
+}
 
-  @media screen and (min-width: 1000px) {
-    .title {
-      font-size: 50px;
-    }
+@media screen and (min-width: 1000px) {
+  .title {
+    font-size: 50px;
   }
+}

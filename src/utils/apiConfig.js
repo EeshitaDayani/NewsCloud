@@ -5,6 +5,8 @@ const today = getDate('today');
 const lastWeek = getDate('lastWeek');
 
 const defaultParams = {
+  q: "", 
+  from: lastWeek,
   language: "en",
   page: 1,
   pageSize: HEADLINE_COUNT,
@@ -14,9 +16,9 @@ const defaultParams = {
   to: today
 };
 
-export const createApiConfig = (additionalParams = { q: "", from: lastWeek }) => {
+export const createApiConfig = (additionalParams) => {
   return {
-    ...additionalParams,
-    ...defaultParams
+    ...defaultParams,
+    ...additionalParams
   };
 };

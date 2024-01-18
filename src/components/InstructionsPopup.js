@@ -44,9 +44,9 @@ export default function InstructionsPopup() {
         </DialogContent>
         <DialogActions style={{ justifyContent: 'center', padding: '16px 24px' }}>
           <Button onClick={handleClose} sx={{
-              color: '#ffffff',  // Set button text color to white
-              border: '1px solid', // Add a 2px white border
-              borderRadius: '10px', // Add border-radius for rounded corners
+              color: '#ffffff',  
+              border: '1px solid', 
+              borderRadius: '10px', 
             }} >Got it</Button>
         </DialogActions>
       </Dialog>

@@ -36,16 +36,13 @@ export default function DateRangeSelector({ onSelect }) {
       };
 
       return (
-        
         <Box sx={{ minWidth: 120 }}>
-          
           <FormControl fullWidth>
             <ThemeProvider theme={darkTheme}>
               <InputLabel id="demo-simple-select-label">Time</InputLabel>
               <Select
                 sx= {{
                   color: 'white'
-
                 }}
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"

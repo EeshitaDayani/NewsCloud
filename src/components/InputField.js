@@ -10,7 +10,6 @@ const darkTheme = createTheme({
 export default function InputField({ onEnter }) {
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
-      // Call the onEnter callback with the current input value
       if (onEnter) {
         onEnter(e.target.value);
       }

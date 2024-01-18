@@ -3,7 +3,6 @@ import { useRouter } from 'next/router';
 
 import InputField from '@/src/components/InputField';
 import DateRangeSelector from '@/src/components/DateRangeSelector';
-import InstructionsPopup from '@/src/components/InstructionsPopup';
 
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';

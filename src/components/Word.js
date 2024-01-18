@@ -17,18 +17,13 @@ export default function Word({ children, color, isMobile, hoverColor, url, ...pr
     isMobile ? window.location.href = url : window.open(url, '_blank')
   }
 
-  // Change the mouse cursor on hover
   useEffect(() => {
     if (hovered) document.body.style.cursor = 'pointer'
     return () => (document.body.style.cursor = 'auto')
   }, [hovered])
 
-  // Tie component to the render-loop
   useFrame(({ camera }) => {
-    // Make text face the camera
     ref.current.quaternion.copy(camera.quaternion);
-    
-    // Update text color based on hover state
     ref.current.material.color.copy(new THREE.Color(hovered ? hoverColor : color));
   })
 
