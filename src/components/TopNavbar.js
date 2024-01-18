@@ -11,53 +11,53 @@ import CssBaseline from '@mui/material/CssBaseline';
 import styles from '@/styles/TopNavbar.module.css';
 
 export default function TopNavbar({ setSearchQuery, setDate }) {
-    const handleEnter = (inputValue) => {
-        setSearchQuery(inputValue);
-      };
-    
-      const handleSelect = (inputValue) => {
-        setDate(inputValue);
-      };
-    
-      const router = useRouter();
-      const handleRefresh = () => {
-        router.reload();
-      };
+  const handleEnter = (inputValue) => {
+      setSearchQuery(inputValue);
+    };
+  
+  const handleSelect = (inputValue) => {
+    setDate(inputValue);
+  };
 
-    return (
-      <div className={styles.contentContainer}>
-        <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' }, '*': { userSelect: 'none' } }} />
-        <CssBaseline />
+  const router = useRouter();
+  const handleRefresh = () => {
+    router.reload();
+  };
 
-        <Toolbar className={styles.toolbar}>
-          <div>
-            <div className={styles.title} onClick={handleRefresh}>
-              <Typography variant='h3' noWrap fontFamily={'Inter'}>
-                <span className={styles.titlePartOne}>
-                  NEWS
-                </span>
-                <span className={styles.titlePartTwo}>
-                  CLOUD
-                </span>
-              </Typography>
-            </div>
-            <div className={styles.subtitle} onClick={handleRefresh}>
-              <Typography variant='h6' noWrap fontFamily={'Inter'}>
-                <span className={styles.titlePartTwo}>
-                YOUR DAILY NEWS SNAPSHOT
-                </span>
-              </Typography>
-            </div>
+  return (
+    <div className={styles.contentContainer}>
+      <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' }, '*': { userSelect: 'none' } }} />
+      <CssBaseline />
+
+      <Toolbar className={styles.toolbar}>
+        <div>
+          <div className={styles.title} onClick={handleRefresh}>
+            <Typography variant='h3' noWrap fontFamily={'Inter'}>
+              <span className={styles.titlePartOne}>
+                NEWS
+              </span>
+              <span className={styles.titlePartTwo}>
+                CLOUD
+              </span>
+            </Typography>
           </div>
-          <div className={styles.inputContainer}>
-            <div className={styles.inputField}>
-              <InputField onEnter={handleEnter} />
-            </div>
-            <div className={styles.dateSelector}>
-              <DateRangeSelector onSelect={handleSelect} />
-            </div>
+          <div className={styles.subtitle} onClick={handleRefresh}>
+            <Typography variant='h6' noWrap fontFamily={'Inter'}>
+              <span className={styles.titlePartTwo}>
+              YOUR DAILY NEWS SNAPSHOT
+              </span>
+            </Typography>
           </div>
-        </Toolbar>
-      </div>
-    )
+        </div>
+        <div className={styles.inputContainer}>
+          <div className={styles.inputField}>
+            <InputField onEnter={handleEnter} />
+          </div>
+          <div className={styles.dateSelector}>
+            <DateRangeSelector onSelect={handleSelect} />
+          </div>
+        </div>
+      </Toolbar>
+    </div>
+  )
 }
