@@ -18,6 +18,12 @@ export default function ThreeScene({ searchQuery, date, isMobile }) {
   const { error } = data ? data : '';
   const headlines = data && data.data ? data.data.map(item => ({ 'title': item.title, 'url': item.url })) : [];
 
+  const billboardText = () => {
+    if (isValidating || !data) return (<Text children="Loading..." {...fontProps} />);
+    if (headlines.length === 0) return (<Text children="No search results" {...fontProps} />)
+    if (error) return (<Text children="Sorry, an error occurred." {...fontProps} />)
+  }
+
   return (
     <Canvas
       onCreated={({ gl }) => gl.setClearColor(new THREE.Color('#121212'))}
@@ -26,9 +32,7 @@ export default function ThreeScene({ searchQuery, date, isMobile }) {
     >
       <fog attach="fog" args={['#121212', 0, 100]} />
       <Billboard>
-        { (isValidating || !data) && <Text children="Loading..." {...fontProps} /> } 
-        { headlines.length === 0 && (<Text children="No search results" {...fontProps} />) }
-        { error && (<Text children="Sorry, an error occurred." {...fontProps} />) } 
+        {billboardText()}
       </Billboard>
       <Cloud radius={40} headlines={headlines} isMobile={isMobile} />
       <TrackballControls />
