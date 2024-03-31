@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
-import InputField from '@/src/components/InputField';
-import DateRangeSelector from '@/src/components/DateRangeSelector';
+import InputField from "@/src/components/InputField";
+import DateRangeSelector from "@/src/components/DateRangeSelector";
 
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import GlobalStyles from '@mui/material/GlobalStyles';
-import CssBaseline from '@mui/material/CssBaseline';
-import styles from '@/styles/TopNavbar.module.css';
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import GlobalStyles from "@mui/material/GlobalStyles";
+import CssBaseline from "@mui/material/CssBaseline";
+import styles from "@/styles/TopNavbar.module.css";
 
 export default function TopNavbar({ setSearchQuery, setDate }) {
   const handleEnter = (inputValue) => {
-      setSearchQuery(inputValue);
-    };
-  
+    setSearchQuery(inputValue);
+  };
+
   const handleSelect = (inputValue) => {
     setDate(inputValue);
   };
@@ -26,25 +26,26 @@ export default function TopNavbar({ setSearchQuery, setDate }) {
 
   return (
     <div className={styles.contentContainer}>
-      <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' }, '*': { userSelect: 'none' } }} />
+      <GlobalStyles
+        styles={{
+          ul: { margin: 0, padding: 0, listStyle: "none" },
+          "*": { userSelect: "none" },
+        }}
+      />
       <CssBaseline />
 
       <Toolbar className={styles.toolbar}>
         <div>
           <div className={styles.title} onClick={handleRefresh}>
-            <Typography variant='h3' noWrap fontFamily={'Inter'}>
-              <span className={styles.titlePartOne}>
-                NEWS
-              </span>
-              <span className={styles.titlePartTwo}>
-                CLOUD
-              </span>
+            <Typography variant="h3" noWrap fontFamily={"Inter"}>
+              <span className={styles.titlePartOne}>NEWS</span>
+              <span className={styles.titlePartTwo}>CLOUD</span>
             </Typography>
           </div>
           <div className={styles.subtitle} onClick={handleRefresh}>
-            <Typography variant='h6' noWrap fontFamily={'Inter'}>
+            <Typography variant="h6" noWrap fontFamily={"Inter"}>
               <span className={styles.titlePartTwo}>
-              YOUR DAILY NEWS SNAPSHOT
+                YOUR DAILY NEWS SNAPSHOT
               </span>
             </Typography>
           </div>
@@ -59,5 +60,5 @@ export default function TopNavbar({ setSearchQuery, setDate }) {
         </div>
       </Toolbar>
     </div>
-  )
+  );
 }

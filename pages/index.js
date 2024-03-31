@@ -36,3 +36,9 @@ export default function Home() {
     </div>
   );
 }
+
+// TODO:
+// - user location-based recommendation system
+// - separate mobile and desktop cloud logic
+// - add news categories
+// - avoid prop drilling, use signals or useContext instead
