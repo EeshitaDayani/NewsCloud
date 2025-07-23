@@ -1,8 +1,8 @@
 # NewsCloud
-[NewsCloud](https://news-cloud-v2.vercel.app/) is a website designed to streamline news consumption. Using Next.js and THREE.js for a 3D visualization, NewsCloud offers an exciting approach to staying informed.
+[NewsCloud](https://news-cloud-v2.vercel.app/) is a website designed to streamline news consumption. Using Next.js and THREE.js for a 3D visualization, NewsCloud offers an exciting way to staying informed.
 
 ## Features
-**3D Visualization**: Explore topics and stories in a way that goes beyond traditional interfaces.
+**3D Visualization**: Explore topics and stories beyond traditional interfaces.
 
 **Color-Coded Headlines:** Headlines are color-coded to provide quick insights into their popularity. Red headlines indicate higher popularity, while yellow headlines are less popular.
 
