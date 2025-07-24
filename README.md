@@ -8,4 +8,4 @@
 
 **Responsive Design:** NewsCloud is built with a responsive design across desktops, tablets, or smartphones.
 
-**Search and Filter:** Easily find the news you're interested in using search and filtering options. Customise your news feed based on keywords, topics, and date ranges.
+**Search and Filter:** Easily find the news you are interested in using search and filtering options. Customise your news feed based on keywords, topics, and date ranges.
