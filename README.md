@@ -4,7 +4,7 @@
 ## Features
 **3D Visualization**: Explore topics and stories beyond traditional interfaces.
 
-**Color-Coded Headlines:** Headlines are color-coded to provide quick insights into their popularity. Red headlines indicate higher popularity, while yellow headlines are less popular.
+**Color-Coded Headlines:** Headlines are color-coded to provide quick insights into their popularity. Red headlines indicate higher popularity, while yellow headlines are not as popular.
 
 **Responsive Design:** NewsCloud is built with a responsive design across desktops, tablets, or smartphones.
 
